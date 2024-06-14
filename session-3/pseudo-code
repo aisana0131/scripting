@@ -1,0 +1,36 @@
+## pseudo code
+## logic to push changes to github
+
+Requirements
+
+1. check for git || install git
+2. be within a repository (aka folder)
+   a. folder must contain .git folder
+3. check ~/.ssh/known_hosts to see if github.com is a known host
+4. check if git user has been configured (~/.gitconfig)
+
+      Step 1:
+
+check if git is installed or install git
+
+      Step 2:
+
+check if current folder (pwd) contains by .git:
+ a. if so, proceed
+ b. else, prompt the user for repo name and save it as a variable
+
+      Step 3:
+check if user authenticated via SSH
+ a. grep for "github.com" domain in ~/.ssh/known_hosts
+ b.if authenticated, proceed
+ c. else, notify user to establish authentication then exit
+
+      Step 4:
+check if a file by ".gitconfig" exits in the home directory
+ a.if condition to check if file exists
+ b. if file exists, proceed
+ c. else,
+  - ask user for github username and save as va
+  - ask user for github associated email and save as var
+  - configure the user with the provided information
+
