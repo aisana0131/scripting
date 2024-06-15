@@ -2,8 +2,8 @@
 
 # Make sure the script is being executed with superuser privileges.
 
-if (( $EUID != 0 )); then
-	echo "Please run as superuser: root"
+if [[ "${PID}" -ne 0 ]]; then
+	echo "Please run as a root or with superuser privileges"
 	exit
 fi
 
