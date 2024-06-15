@@ -16,7 +16,11 @@ fi
 
 # The first parameter is the user name.
 
+username="${1}"
+
 # The rest of the parameters are for the account comments.
+
+comment="${@}"
 
 # Generate a password.
 
@@ -40,11 +44,17 @@ passwd -e $1
 
 # Check to see if the passwd command succeeded.
 
+if [[ $? -ne 0 ]]; then
+        echo "Did not set a password"
+        exit 1
+fi
+
 # Force password change on first login.
+
+passwd -e ${username}  &> /dev/null
 
 # Display the username, password, and the host where the user was created.
 
-echo """User: $1
-Password: $random_passwd
-host: $(curl ifconfig.me)
-"""
+echo "Username: ${username}"
+echo "Password: ${password}"
+echo "Host: ${HOSTNAME}"
