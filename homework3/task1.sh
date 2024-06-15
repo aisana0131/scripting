@@ -24,7 +24,7 @@ comment="${@}"
 
 # Generate a password.
 
-#################  $ genpasswd
+$ genpasswd
 
 # Create the user with the password.
 
